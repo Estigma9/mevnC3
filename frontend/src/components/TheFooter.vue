@@ -2,7 +2,7 @@
     <div>
         <footer>
             <div class="partFooter">
-                <img src="img/logoEstigma.png" alt="">            
+                <img src="../assets/logoEstigma.png" alt="">            
             </div>
 
             <div class="partFooter">
@@ -25,7 +25,7 @@
                     <b-icon id="b-icon" icon="facebook"></b-icon>
                     <b-icon-twitter id="b-icon"></b-icon-twitter>
                     <b-icon id="b-icon" icon="instagram"></b-icon>
-                    <b-icon-youtube id="b-icon"></b-icon-youtube>
+                    <b-icon-youtube id="b-icon" animation="throb" ></b-icon-youtube>
                 </div>
             </div>
         </footer>
@@ -76,7 +76,8 @@ footer{
     width: 70%;
 }
 
-.social-media i{
+.social-media #b-icon{
+    padding: 4px;
     font-size: 20px;
     display: inline-block;
     color: var(--gray);
@@ -93,15 +94,12 @@ footer{
 
 }
 
-.social-media i:hover{
+.social-media #b-icon:hover{
     color: var(--white);
     background-color: var(--light-green);
     border-color: var(--light-green);
     
 }
-
-
-
 
 </style>
 

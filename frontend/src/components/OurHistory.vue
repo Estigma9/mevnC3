@@ -1,12 +1,12 @@
 <template>
     <div class="contenedor">
         <section class="contenido-header">
+            <img src="../assets/history.png" alt="">
             <section class="textos-header">
-                <h1>Our creativity is your success</h1>
+                <h1>Our History Since 1842</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, est!</p>
                 <a href="#">Learn more</a>
             </section>
-            <img src="../assets/primeraIlustracion.svg" alt="">
         </section>
     </div>
 </template>
@@ -90,4 +90,6 @@ h1{
 }
 
 </style>
+
+
 
