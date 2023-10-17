@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 exports.login = async(req, res, next)=>{
     try {
-        const user = await models.User.findOne({where: {email:req.body.email}});
+        const user = await models.User.findOne({email:req.body.email});
 
         if(user){
             const passwordIsValid = bcrypt.compareSync(req.body.password, user.password);

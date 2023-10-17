@@ -39,9 +39,9 @@
 }
 
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #app {
@@ -51,8 +51,8 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: var(--dark-blue);
-    font-weight: 300;
+  color: var(--dark-blue);
+  font-weight: 300;
 }
 
 .contenedor {
@@ -143,61 +143,60 @@ nav {
 }
 
 .hamburguer> .b-icon {
-    font-size: 25px;
-    line-height: 80px;
-    color: var(--dark-blue);
+  font-size: 25px;
+  line-height: 80px;
+  color: var(--dark-blue);
 }
 
 .contenido-header {
-    width: 100%;
-    height: 600px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .contenido-header>img {
-    width: 550px;
-    animation: ease-in animat 1s;
+  width: 550px;
+  animation: ease-in animat 1s;
 }
 
 @keyframes animat {
-    0%{
-        transform: scale(0);
-    }
-    100%{
-        transform: scale(1); /*probar con 2*/
-    }
+  0%{
+      transform: scale(0);
+  }
+  100%{
+      transform: scale(1); /*probar con 2*/
+  }
 }
 
 .textos-header{
-    margin: 0 0 0 30px;
+  margin: 0 0 0 30px;
 }
 
 .contenido-header p{
-    font-weight: 100;
-    margin-top: 14px;
-    color: var(--light-blue);
+  font-weight: 100;
+  margin-top: 14px;
+  color: var(--light-blue);
 
 }
 
 .contenido-header a{
-    margin: 28px 0 0 0;
-    width: 130px;
-    display: inline-block;
-    background: var(--light-green);
-    text-align: center;
-    color: var(--white);
-    padding: 12px 0;
-    text-decoration: none;
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 14px;
-    border-radius: 5px;
-    box-shadow: 0 8px 32px rgba(31, 222, 130, 0.46);
+  margin: 28px 0 0 0;
+  width: 130px;
+  display: inline-block;
+  background: var(--light-green);
+  text-align: center;
+  color: var(--white);
+  padding: 12px 0;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 8px 32px rgba(31, 222, 130, 0.46);
 
 }
-
 
 
 </style>

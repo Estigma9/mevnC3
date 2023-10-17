@@ -1,10 +1,10 @@
 <template>
-    <div class="Services">
-      <my-services></my-services>
-      <other-services></other-services>
-      <the-footer></the-footer>
-    </div>
-  </template>
+  <div class="Services">
+    <my-services></my-services>
+    <other-services></other-services>
+    <the-footer></the-footer>
+  </div>
+</template>
   
   
   <script>

@@ -1,120 +1,200 @@
 <template>
     <div class="the-login">
-        <!-- Formularios -->
-        <div class="contenedor-formularios">
-            <!-- Links de los formularios -->
-            <ul class="contenedor-tabs">
-                <li class="tab tab-segunda active">
-                    <a href="#iniciar-sesion">Iniciar Sesión</a>
-                </li>
+      <!-- Formularios -->
+      <div class="contenedor-formularios">
+          <!-- Links de los formularios -->
+          <ul class="contenedor-tabs">
+              <li
+                @click="selectTab(1)"
+                :class="{active: currentTab == 1}" 
+                class="tab tab-segunda">
+                  <a href="#iniciar-sesion">Iniciar Sesión</a>
+              </li>
 
-                <li class="tab tab-primera">
-                    <a href="#registrarse">Registrarse</a>                    
-                </li>
-            </ul>
-
-
-            <!-- Contenido de los Formularios -->
-            <div class="contenido-tab">
-            <!-- Iniciar Sesión -->
-
-                <div class="bloque active" id="iniciar-sesion">
-                    <h1>Iniciar Sesión</h1>
-                    <form action="#" method="post">
-                        <div class="contenedor-input">
-                            <label class="label"><span class="req"></span></label>
-                            <input 
-                                type="email"
-                                required
-                                placeholder="Email"
-                            >
-                        </div>
-
-                        <div class="contenedor-input">
-                            <label class="label"><span class="req"></span></label>
-                            <input 
-                                type="password"
-                                required
-                                placeholder="Password"
-                            >
-                        </div>
-
-                        <p class="forgot"><a href="#">¿Se te olvidó la contraseña?</a></p>
-
-                        <input 
-                            type="submit"
-                            class="button button-block"
-                            value="Iniciar Sesión"
-                        >
-                    </form>
-                </div>
-
-                <!-- Registrarse -->
-                <div class="bloque" id="registrarse">
-                    <h1>Registrarse</h1>
-                    <form action="#" method="post">
-                        <div class="fila-arriba">
-                            <div class="contenedor-input">
-                                <label><span class="req"></span></label>
-                                <input 
-                                    type="text"
-                                    required
-                                    placeholder="Nombre"
-                                >
-                            </div>
-                            
-                            <div class="contenedor-input">
-                                <label><span class="req"></span></label>
-                                <input 
-                                    type="text"
-                                    required
-                                    placeholder="Apellidos"
-                                >
-                            </div>
-                        </div>
-
-                        <div class="contenedor-input">
-                            <label class="label"><span class="req"></span></label>
-                            <input 
-                                type="email"
-                                required
-                                placeholder="Email"
-                            >
-                        </div>
-
-                        <div class="contenedor-input">
-                            <label class="label"><span class="req"></span></label>
-                            <input 
-                                type="password"
-                                required
-                                placeholder="Password"
-                            >
-                        </div>
-
-                        <div class="contenedor-input">
-                            <label class="label"><span class="req"></span></label>
-                            <input 
-                                type="password"
-                                required
-                                placeholder="Verificar Password"
-                            >
-                        </div>
-
-                        <input 
-                            type="submit"
-                            class="button button-block"
-                            value="Registrarse"
-                        >                    
-                    </form>
-                </div>
-            </div>
-        </div>
+              <li
+                @click="selectTab(2)"
+                :class="{active: currentTab == 2}" 
+                class="tab tab-primera">
+                  <a href="#registrarse">Registrarse</a>                    
+              </li>
+          </ul>
 
 
+          <!-- Contenido de los Formularios -->
+          <!-- <div class="contenido-tab"> -->
+          <!-- Iniciar Sesión -->
+              <div v-if="currentTab == 1" id="iniciar-sesion">
+                  <h1>Iniciar Sesión</h1>
+                  <form action="#" method="post">
+                      <div class="contenedor-input">
+                          <label class="label"><span class="req"></span></label>
+                          <input 
+                              v-model="login.email"
+                              type="email"
+                              required
+                              placeholder="Email"
+                          >
+                      </div>
+
+                      <div class="contenedor-input">
+                          <label class="label"><span class="req"></span></label>
+                          <input
+                              v-model="login.password" 
+                              type="password"
+                              required
+                              placeholder="Password"
+                          >
+                      </div>
+
+                      <p class="forgot"><a href="#">¿Se te olvidó la contraseña?</a></p>
+
+                      <input 
+                          @click.prevent="loginUser"
+                          type="submit"
+                          class="button button-block"
+                          value="Iniciar Sesión"
+                      >
+                  </form>
+              </div>
+
+              <!-- Registrarse -->
+              <div v-if="currentTab == 2" id="registrarse">
+                  <h1>Registrarse</h1>
+                  <form action="#" method="post">
+                      <div class="fila-arriba">
+                          <div class="contenedor-input">
+                              <label><span class="req"></span></label>
+                              <input 
+                                  v-model="register.username"
+                                  type="text"
+                                  required
+                                  placeholder="Nombre"
+                              >
+                          </div>
+                          
+                          <div class="contenedor-input">
+                              <label><span class="req"></span></label>
+                              <input 
+                                  v-model="register.userlastname"
+                                  type="text"
+                                  required
+                                  placeholder="Apellidos"
+                              >
+                          </div>
+                      </div>
+
+                      <div class="contenedor-input">
+                          <label class="label"><span class="req"></span></label>
+                          <input
+                              v-model="register.email" 
+                              type="email"
+                              required
+                              placeholder="Email"
+                          >
+                      </div>
+
+                      <div class="contenedor-input">
+                          <label class="label"><span class="req"></span></label>
+                          <input
+                              v-model="register.password" 
+                              type="password"
+                              required
+                              placeholder="Password"
+                          >
+                      </div>
+
+                      <div class="contenedor-input">
+                          <label class="label"><span class="req"></span></label>
+                          <input 
+                              v-model="register.passwordcompare"
+                              type="password"
+                              required
+                              placeholder="Verificar Password"
+                          >
+                      </div>
+
+                      <input 
+                          @click.prevent="registerUser"
+                          type="submit"
+                          class="button button-block"
+                          value="Registrarse"
+                      >                    
+                  </form>
+              </div>
+          <!-- </div> -->
+      </div>
+
+      <pre>
+        {{login}}
+        {{register}}            
+      </pre>
     </div>
 </template>
 
+<script>
+import swal from "sweetalert";
 
+export default {
+  name: 'TheLogin',
+  data() {
+    return{
+      currentTab: 1,
+      login: {
+        email: "",
+        password: "",
+      },
+      register: {
+        username: "",
+        userlastname: "",
+        email: "",
+        password: "",
+        passwordcompare: "",
+      }  
+    }
+
+  },
+  methods: {
+    selectTab(selectTab){
+      this.currentTab = selectTab;
+    },
+    async loginUser(){
+      try {
+        let response = await this.$http.post("/api/user/login", this.login);
+        console.log(response.data);
+        let token = response.data.tokenReturn;
+        let user = response.data.user;
+
+        localStorage.setItem("jwt", token);
+        localStorage.setItem("user", JSON.stringify(user));
+
+        if(token){
+          swal("Éxito!!", "Login correcto", "success");
+          this.$router.push("/checked");
+          this.$root.$emit('set-is-authenticated', true);
+        }
+      } catch (e) {
+        swal("Oops!", "Algo salió mal!", "error");
+      }
+
+    },
+    async registerUser(){
+      try {
+        let response = await this.$http.post('/api/user/register', this.register);
+
+        console.log(response);
+        swal("Éxito!!", "Registro correcto", "success");
+        this.$router.push("/login");
+        this.currentTab = 1;
+        
+      } catch (e) {
+        swal("Oops!", "Algo salió mal con tu registro", "error");
+      }
+    }
+  }
+
+}
+
+</script>
 
 
 
@@ -122,7 +202,7 @@
 
 <style scoped>
 
-* {
+*{
   --form-bg: #13232f;
   --form-bg-light: #13232fef;
   --blanco: #fff;
