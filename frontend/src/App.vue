@@ -45,9 +45,12 @@ export default{
   },
   methods: {
     logout() {
-
-    }
-  }
+      localStorage.removeItem("jwt");
+      localStorage.removeItem("user");
+      this.$router.push("/");
+      this.isAuthenticated = false;
+    },
+  },
 };
 </script>
 
