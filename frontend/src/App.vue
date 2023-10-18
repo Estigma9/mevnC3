@@ -14,6 +14,11 @@
             <router-link to="/services">Services</router-link> 
             <router-link to="/store">Store</router-link> 
             <router-link to="/login">Login</router-link>
+            <button
+                class="logout"
+                @click="logout"
+                v-if="isAuthenticated"
+            >LogOut</button>
           </div>
           <div class="hamburguer">
               <b-icon icon="list" class="b-icon"></b-icon>
@@ -24,6 +29,27 @@
     <router-view/>
   </div>
 </template>
+
+<script>
+export default{
+  data() {
+    return {
+      isAuthenticated: false,
+    }
+  },
+  created() {
+    // Escucha el evento personalizado 'set-is-authenticated' para actualizar el prop 'isAuthenticated'
+    this.$root.$on('set-is-authenticated', (value=>{
+      this.isAuthenticated = value;
+    }));
+  },
+  methods: {
+    logout() {
+
+    }
+  }
+};
+</script>
 
 <style>
 :root{
@@ -118,7 +144,8 @@ nav {
   transition: ease-in-out 0.5s;
 }
 
-.nav .enlaces-header a {
+.nav .enlaces-header a,
+.nav .enlaces-header .logout {
   font-size: 20px;
   color: var(--light-blue);
   text-decoration: none;
@@ -129,6 +156,10 @@ nav {
 
 .nav a.router-link-exact-active {
   color: var(--light-green);
+}
+
+.nav .enlaces-header .logout{
+  color: var(--white);
 }
 
 .hamburguer {
@@ -193,6 +224,22 @@ nav {
   font-weight: 400;
   text-transform: uppercase;
   font-size: 14px;
+  border-radius: 5px;
+  box-shadow: 0 8px 32px rgba(31, 222, 130, 0.46);
+
+}
+
+.enlaces-header .logout {
+  margin: 2px 0 0 0;
+  width: 100px;
+  display: inline-block;
+  background: var(--light-green);
+  text-align: center;
+  color: var(--white);
+  padding: 4px;
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: uppercase;
   border-radius: 5px;
   box-shadow: 0 8px 32px rgba(31, 222, 130, 0.46);
 

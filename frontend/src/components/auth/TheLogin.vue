@@ -171,6 +171,7 @@ export default {
           swal("Éxito!!", "Login correcto", "success");
           this.$router.push("/checked");
           this.$root.$emit('set-is-authenticated', true);
+          // this.isAuthenticated = true;
         }
       } catch (e) {
         swal("Oops!", "Algo salió mal!", "error");
@@ -190,7 +191,8 @@ export default {
         swal("Oops!", "Algo salió mal con tu registro", "error");
       }
     }
-  }
+  },
+  props: ['isAuthenticated'],
 
 }
 
